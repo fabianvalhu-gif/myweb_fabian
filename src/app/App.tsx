@@ -256,7 +256,7 @@ export default function App() {
       <section id="home" className="relative min-h-screen flex items-center">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black"></div>
-          <div className="absolute inset-y-0 right-0 w-[46%] flex items-center justify-end pointer-events-none">
+          <div className="absolute inset-y-0 right-0 w-[46%] hidden lg:flex items-center justify-end pointer-events-none">
             <img
               src={heroRightImage}
               alt=""
@@ -271,7 +271,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/95 to-transparent"></div>
         </div>
 
-        <div className="relative max-w-[1440px] mx-auto px-[120px] w-full">
+        <div className="relative max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px] w-full">
           <motion.div
             className="max-w-[700px]"
             initial={{ opacity: 0, y: 10 }}
@@ -281,7 +281,7 @@ export default function App() {
             <div className="text-[14px] leading-[20px] font-medium text-[#9AA6B2] mb-3">
               Commercial Growth Leader LATAM (B2B)
             </div>
-            <h1 className="text-[56px] leading-[62px] sm:text-[64px] sm:leading-[72px] font-semibold tracking-tight text-[#E9EEF5] mb-3">
+            <h1 className="text-[40px] leading-[46px] sm:text-[56px] sm:leading-[62px] lg:text-[64px] lg:leading-[72px] font-semibold tracking-tight text-[#E9EEF5] mb-3">
               Fabián Valenzuela
             </h1>
             <h2 className="text-[20px] leading-[28px] sm:text-[24px] sm:leading-[32px] font-medium text-[#C7D0DA] mb-5">
@@ -291,7 +291,7 @@ export default function App() {
               Especialista en pricing/mix, forecast (S&OP) y gestión con KPIs (Power BI) en minería, distribución industrial y aftermarket automotriz.
             </p>
 
-            <div className="flex gap-4 mt-10 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-10 mb-8">
               <a href={cvPdf} download>
                 <Button variant="primary">
                   <Download className="w-4 h-4 inline mr-2" />
@@ -314,9 +314,9 @@ export default function App() {
 
       {/* About Section */}
       <section id="about" className="py-20">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px]">
           <motion.div
-            className="grid grid-cols-2 gap-16"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -383,7 +383,7 @@ export default function App() {
 
       {/* Resume Section */}
       <section id="resume" className="py-20">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px]">
           <h2 className="text-[28px] leading-[36px] font-semibold text-[#E9EEF5] mb-12">
             Resume
           </h2>
@@ -402,13 +402,17 @@ export default function App() {
               }`}
             >
               <div className="min-w-0">
-                <ResumeTimeline
-                  items={experienceTimeline}
-                  activeIndex={activeExperienceIndex}
-                  onSelect={(index) =>
-                    setActiveExperienceIndex((current) => (current === index ? null : index))
-                  }
-                />
+                <div className="overflow-x-auto lg:overflow-visible -mx-2 px-2">
+                  <div className="min-w-[900px] lg:min-w-0">
+                    <ResumeTimeline
+                      items={experienceTimeline}
+                      activeIndex={activeExperienceIndex}
+                      onSelect={(index) =>
+                        setActiveExperienceIndex((current) => (current === index ? null : index))
+                      }
+                    />
+                  </div>
+                </div>
               </div>
               {activeExperienceIndex !== null ? (
                 <div className="relative">
@@ -449,7 +453,7 @@ export default function App() {
           </motion.div>
 
           <motion.div
-            className="mt-24 grid grid-cols-2 gap-12"
+            className="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -541,7 +545,7 @@ export default function App() {
 
       {/* Gallery Section */}
       <section id="gallery" className="py-20">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px]">
           <div className="flex items-end justify-between mb-10">
             <div>
               <div className="text-xs font-medium uppercase tracking-[0.18em] text-[#9AA6B2] mb-3">
@@ -582,7 +586,7 @@ export default function App() {
 
       {/* Languages & FAQ Section */}
       <section id="faq" className="py-20">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px]">
           <div>
             <div className="text-xs font-medium uppercase tracking-[0.18em] text-[#9AA6B2] mb-3">
               FAQ
@@ -614,7 +618,7 @@ export default function App() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-black">
-        <div className="max-w-[1440px] mx-auto px-[120px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px]">
           <div className="flex items-end justify-between mb-12">
             <div>
               <div className="text-xs font-medium uppercase tracking-[0.18em] text-[#9AA6B2] mb-3">
@@ -767,7 +771,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-[rgba(255,255,255,0.08)]">
-        <div className="max-w-[1440px] mx-auto px-[120px] flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px] flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div className="text-sm text-[#9AA6B2]">
             © 2026 Fabián Valenzuela
           </div>

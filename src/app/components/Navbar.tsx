@@ -27,8 +27,8 @@ export const Navbar: React.FC = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-[120px] h-[72px] flex items-center justify-center">
-        <div className="flex items-center gap-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 xl:px-[120px] h-[72px] flex items-center justify-center">
+        <div className="flex items-center gap-6 md:gap-8 overflow-x-auto whitespace-nowrap max-w-full">
           <button
             onClick={() => scrollToSection('home')}
             className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
