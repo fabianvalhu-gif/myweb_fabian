@@ -298,7 +298,6 @@ export default function App() {
                   Descargar CV (PDF)
                 </Button>
               </a>
-              <Button variant="secondary">Ver casos</Button>
             </div>
           </motion.div>
         </div>
@@ -514,11 +513,11 @@ export default function App() {
 
             <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
               <div className="overflow-hidden bg-black">
-                <div className="marquee-track flex w-max items-center gap-6 py-5">
+                <div className="marquee-track flex w-max items-center gap-6 py-6">
                   {repeatedSkillLogos.map((item, index) => (
                     <div
                       key={`${item.name}-${index}`}
-                      className="group relative min-w-[140px] h-[70px] flex items-center justify-center focus:outline-none"
+                      className="group relative min-w-[140px] h-[82px] flex items-center justify-center focus:outline-none"
                       tabIndex={0}
                       aria-label={`${item.name} · ${item.level}`}
                     >
