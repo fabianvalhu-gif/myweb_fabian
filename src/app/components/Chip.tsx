@@ -10,7 +10,7 @@ export const Chip: React.FC<ChipProps> = ({ children, active = false, onClick })
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${
+      className={`px-4 py-2 rounded-full text-sm transition-[transform,background-color,color] duration-200 ease-out will-change-transform hover:-translate-y-0.5 active:translate-y-0 ${
         active 
           ? 'bg-[#4DA3FF] text-white' 
           : 'bg-[#0F1621] text-[#9AA6B2] hover:bg-[#1A2030] hover:text-[#E9EEF5]'

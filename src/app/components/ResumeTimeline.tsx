@@ -6,21 +6,27 @@ export type ResumeTimelineItem = {
   role: string;
   company: string;
   logoSrc?: string;
+  responsibilities?: string[];
+  coverage?: string;
 };
 
 type ResumeTimelineProps = {
   items: ResumeTimelineItem[];
   defaultYear?: string;
+  activeIndex?: number | null;
+  onSelect?: (index: number) => void;
 };
 
-export function ResumeTimeline({ items, defaultYear }: ResumeTimelineProps) {
+export function ResumeTimeline({ items, defaultYear, activeIndex, onSelect }: ResumeTimelineProps) {
   const defaultIndex = useMemo(() => {
     if (!defaultYear) return 0;
     const index = items.findIndex((item) => item.year === defaultYear);
     return index >= 0 ? index : 0;
   }, [defaultYear, items]);
 
-  const [activeIndex, setActiveIndex] = useState(defaultIndex);
+  const [internalActiveIndex, setInternalActiveIndex] = useState(defaultIndex);
+  const resolvedActiveIndex =
+    activeIndex === null ? null : activeIndex ?? internalActiveIndex;
 
   if (!items.length) return null;
 
@@ -35,7 +41,7 @@ export function ResumeTimeline({ items, defaultYear }: ResumeTimelineProps) {
         }}
       >
         {items.map((item, index) => {
-          const active = index === activeIndex;
+          const active = resolvedActiveIndex !== null && index === resolvedActiveIndex;
           const showTop = index % 2 === 1;
           const periodText = item.period?.trim() ? item.period : '\u00A0';
 
@@ -71,7 +77,7 @@ export function ResumeTimeline({ items, defaultYear }: ResumeTimelineProps) {
                 />
               ) : null}
 
-              <div className="mt-3 text-[14px] leading-[18px] font-semibold text-[#E9EEF5] line-clamp-2">
+              <div className="mt-3 text-[14px] leading-[18px] font-semibold text-[#E9EEF5] whitespace-normal">
                 {item.role}
               </div>
               <div className="mt-1 text-[12px] leading-[16px] text-[#9AA6B2] whitespace-normal break-words">
@@ -84,7 +90,13 @@ export function ResumeTimeline({ items, defaultYear }: ResumeTimelineProps) {
             <button
               key={`${item.year}-${item.role}-${item.company}`}
               type="button"
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                if (onSelect) {
+                  onSelect(index);
+                } else {
+                  setInternalActiveIndex(index);
+                }
+              }}
               aria-current={active ? 'true' : undefined}
               className="group relative min-w-0 px-1 py-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4DA3FF]/70 rounded-xl"
             >

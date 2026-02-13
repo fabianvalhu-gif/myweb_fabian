@@ -11,8 +11,8 @@ html {
 body {
   height: 100%;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 72px;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 88px;
   background: #000000;
   color: #e9eef5;
 }
@@ -20,10 +20,40 @@ body {
 section {
   min-height: 100vh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
-  scroll-margin-top: 72px;
+  scroll-snap-stop: normal;
+  scroll-margin-top: 88px;
 }
 
 #root {
   min-height: 100%;
+}
+
+@media (max-width: 1024px) {
+  body {
+    scroll-snap-type: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }

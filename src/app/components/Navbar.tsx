@@ -29,20 +29,35 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-[1440px] mx-auto px-[120px] h-[72px] flex items-center justify-center">
         <div className="flex items-center gap-8">
-          <button onClick={() => scrollToSection('home')} className="text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors">
-            Home
+          <button
+            onClick={() => scrollToSection('home')}
+            className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
+          >
+            Inicio
           </button>
-          <button onClick={() => scrollToSection('about')} className="text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors">
-            About
+          <button
+            onClick={() => scrollToSection('about')}
+            className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
+          >
+            Sobre mí
           </button>
-          <button onClick={() => scrollToSection('resume')} className="text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors">
-            Resume
+          <button
+            onClick={() => scrollToSection('resume')}
+            className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
+          >
+            Experiencia
           </button>
-          <button onClick={() => scrollToSection('cases')} className="text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors">
-            Cases
+          <button
+            onClick={() => scrollToSection('gallery')}
+            className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
+          >
+            Galería
           </button>
-          <button onClick={() => scrollToSection('contact')} className="text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors">
-            Contact
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="relative text-[#9AA6B2] hover:text-[#E9EEF5] transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-2 after:h-px after:w-0 after:bg-[#4DA3FF] after:transition-[width] after:duration-200 hover:after:w-full"
+          >
+            Contacto
           </button>
         </div>
       </div>
